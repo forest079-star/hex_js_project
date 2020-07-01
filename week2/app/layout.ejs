@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <%- include('meta.ejs') %>
+  <title><%- title %></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link rel="stylesheet" href="./assets/style/all.css">
+</head>
+
+<body>
+  <!-- Loading... -->
+  <!-- <div class="d-flex justify-content-center loading-background">
+    <div class="spinner-border text-warning mt-auto mb-auto" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div> -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container">
+      <a class="navbar-brand d-md-none" href="#">
+        <img src="./assets/images/logo2.png" alt="logo" srcset="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav d-flex justify-content-md-around align-items-centercollapse navbar-collapse">
+          <li class="nav-item">
+            <a class="nav-link" href="#">首頁 </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">活動頁面</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">產品列表<span class="sr-only">(current)</span></a>
+          </li>
+          <a class="navbar-brand d-none d-md-flex mx-6" href="#">
+            <img src="./assets/images/logo2.png" alt="logo" srcset="">
+          </a>
+          <li class="nav-item">
+            <a class="nav-link" href="#">購買表單</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">購物車</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">付款完成頁面</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <%- contents %>
+
+  <footer class="footer">
+    footer
+  </footer>
+
+  <script src="./assets/js/vendors.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="./assets/js/all.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+.loading-background
+{
+    z-index: 9999;
+    background-color: rgba(238, 238, 238, 0.5);
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.card{
+    margin-bottom: 2rem;
+    img{
+        object-fit: cover;
+        height: 300px;
+    }
+}
+
+.onsale{
+    color:#fff;
+    position: absolute;
+    font-size: 14px;
+    line-height: 21px;
+    top: 16px;
+    right: 16px;
+  }
+
