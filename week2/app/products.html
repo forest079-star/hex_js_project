@@ -8,30 +8,9 @@ current: index
 
 <!-- 內容區塊 -->
 <div class="container">
-  <!-- 商品分類 -->
-  <div class="row mb-3 mt-3">
-    <div class="col">
-      <nav class="nav nav-sort justify-content-center">
-        <a class="nav-link active" data-category='' href="#">全部</a>
-        <a class="nav-link" data-category='咖啡豆' href="#">咖啡豆</a>
-        <a class="nav-link" data-category='器具' href="#">器具</a>
-      </nav>
-      <!-- <ul class="nav nav-sort justify-content-center">
-              <li class="nav-item active" >
-                  <a class="nav-link" data-category='' href="#">全部</a>
-              </li>
-              <li class="nav-item" >
-                  <a class="nav-link" data-category='咖啡豆' href="#">咖啡豆</a>
-              </li>
-              <li class="nav-item" >
-                  <a class="nav-link" data-category='器具' href="#">器具</a>
-              </li>
-          </ul> -->
-    </div>
-  </div>
 
   <!-- 查詢、總筆數 -->
-  <div class="row mb-3">
+  <div class="row mb-3 justify-content-between mt-5">
     <div class="col-md-6">
       共 <span id='productCount'>0</span> 筆商品
     </div>
@@ -43,77 +22,28 @@ current: index
         </div>
       </div>
     </div>
-    <div class="col-md-2">
-      <select class="form-control" id="productSort">
-        <option value="0">價格:高到低</option>
-        <option value="1">價格:低到高</option>
-      </select>
-    </div>
   </div>
   <!-- 商品內容 -->
   <div id="list" class="row">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card">
+      <div class="row align-items-stretch" id="list-item">
+        <!-- <div class="col-md-4">
+          <div class="card ">
             <img src="https://images.unsplash.com/photo-1485815457792-d1a966f9bde0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
                  class="pb-2" alt="...">
             <div class="card-body">
               <h3 class="text-primary">Baifan Bowl</h3>
-              <p>NT$1,800</p>
-              <del>NT$1,980</del>
-              <span class="onsale">On Sale</span>
+              <div class="d-flex">
+                <del class="mr-auto">NT$1,980</del>
+                <p class="text-danger font-weight-bold">NT$1,800</p>
+              </div>
+              <div class="d-flex justify-content-end">
+                <div class="btn btn-outline-primary"><i class="fas fa-shopping-cart mr-1"></i>加入購物車</div>
+
+              </div> <span class="onsale">On Sale</span>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1531087131490-07836ca4341d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                 class="pb-2" alt="...">
-            <div class="card-body">
-              <h3 class="text-primary">Baifan Bowl</h3>
-              <p>NT$1,800</p>
-              <del>NT$1,980</del>
-              <span class="onsale">On Sale</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1509827908497-9d239de281bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                 class="pb-2" alt="...">
-            <div class="card-body">
-              <h3 class="text-primary">Baifan Bowl</h3>
-              <p>NT$1,800</p>
-              <del>NT$1,980</del>
-              <span class="onsale">On Sale</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1510034696085-597d716bd162?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                 class="pb-2" alt="...">
-            <div class="card-body">
-              <h3>Baifan Bowl</h3>
-              <p>NT$1,800</p>
-              <del>NT$1,980</del>
-              <span class="onsale">On Sale</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1530132174558-4541234246d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1491&q=80"
-                 class="pb-2" alt="...">
-            <div class="card-body">
-              <h3>Baifan Bowl</h3>
-              <p>NT$1,800</p>
-              <del>NT$1,980</del>
-              <span class="onsale">On Sale</span>
-            </div>
-          </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
