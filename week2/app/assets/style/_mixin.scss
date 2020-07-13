@@ -1,0 +1,104 @@
+@mixin banner($file) {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(#{$file});
+}
+
+
+
+// media 的 mixin
+@mixin breakpoint($val){
+	@media (min-width: map-get($breakpoint, $val)){
+    @content
+  }
+};
+
+// 設定每個 col-* 的 flex
+@mixin make-col($size, $columns: $gridColumn){
+	flex: 0 0 $size / $columns * 100%;
+  max-width: $size / $columns * 100%;
+};
+
+
+@each $key in map-keys($breakpoint) {
+	@for $size from 1 through $gridColumn {
+		@if $key=='sm' {
+			.col-#{$size} {
+				@extend %col;
+				@include make-col($size, $gridColumn);
+			}
+		}
+
+		@else {
+			.col-#{$key}-#{$size} {
+				@extend %col;
+			}
+		}
+	}
+}
+
+@each $key in map-keys($breakpoint) {
+	@for $size from 1 through $gridColumn {
+		@include breakpoint($key);
+
+		.col-#{$key}-#{$size} {
+			@include make-col($size, $gridColumn)
+		}
+	}
+}
+
+/* padding、margin rwd */
+// $class: m、mr、mt
+// $property: margin、margin-right
+// $spacerKey: 1、2、3、4
+// $spacerValue: 0.5rem、0.75rem
+@each $class, $property in $distance{
+	@each $spacerKey, $spacerValue in $spacers{
+		.#{$class}-#{$spacerKey}{
+			#{$property}: $spacerValue !important;
+		}
+	}
+}
+
+@each $class, $property in $distance{
+	@each $spacerKey, $spacerValue in $spacers{
+		@each $bpKey in map-keys($breakpoint){
+			@include breakpoint($bpKey){
+				.#{$class}-#{$bpKey}-#{$spacerKey}{
+					#{$property}: $spacerValue !important;
+				}
+			}
+		}
+	}
+}
+
+/* display */
+@each $dk, $dv in $display{
+	.d-#{$dk}{
+		display: $dv;
+	}
+}
+
+@each $bp in map-keys($breakpoint){
+	@include breakpoint($bp){
+		@if $bp != sm{
+			@each $dk, $dv in $display{
+				.d-#{$bp}-#{$dk}{
+					display: $dv;
+				}
+			}
+		}
+	}
+}
+
+// 隱藏文字 並有背景圖
+@mixin hidden-text($width, $height, $bg_url) {
+  width: $width;
+  height: $height;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-image: $bg_url;
+  background-repeat: no-repeat;
+}
+

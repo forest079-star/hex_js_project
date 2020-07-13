@@ -1,0 +1,55 @@
+/*******************
+ *                 *
+ *    variables    *
+ *                 *
+ *******************/
+
+ // 主題顏色
+$theme-colors: (
+  "primary":   #0E8A00 ,
+  "secondary": #0000009A,
+  "third":     #FFFFFF99,
+  "info":      #F2F2F2,
+);
+
+// 推擠倍數
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .5),
+    2: $spacer,
+    3: ($spacer * 1.5),
+    4: ($spacer * 2),
+    5: ($spacer * 3),
+    6: ($spacer * 4.5)
+  ),
+  $spacers
+);
+
+$font-family-sans-serif: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei",  "Helvetica Neue", Arial, sans-serif;
+
+// 導覽列變數
+$navbar-light-active-color: map-get($theme-colors, primary);
+$navbar-light-hover-color: map-get($theme-colors, primary);
+$navbar-dark-color:white;
+$navbar-dark-hover-color: map-get($theme-colors, primary);
+
+// a link
+$link-color:black;
+$link-hover-color:map-get($theme-colors, primary);
+
+
+// 分頁變數
+$pagination-active-color: map-get($theme-colors, primary);
+$pagination-active-bg: white;
+
+
+
+
+
+
+
+
+
