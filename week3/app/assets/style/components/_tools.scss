@@ -1,0 +1,45 @@
+  
+// btn
+.btn {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  border-color: $primary;
+  padding: .9375rem 0;
+}
+.btn-sm {
+  width: 100%;
+  @include pad() {
+    width: 160px;
+  }
+}
+.btn-md {
+  width: 265px;
+}
+
+// text
+.text-primary {
+  font-weight: $font-weight-bold;
+  color: $primary;
+}
+
+// AOS Animation
+[data-aos="fade-sm-up"] {
+  opacity: 0;
+  transform: translateY(30px);
+
+  &.aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-aos="scale-up"] {
+  transform: scaleY(1);
+  transform-origin: 100% 0%;
+
+  &.aos-animate {
+    transform: scaleY(0);
+    transform-origin: 100% 0%;
+  }
+}
+

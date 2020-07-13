@@ -1,0 +1,20 @@
+// custom val
+@import 'val';
+
+//bootstrap 4
+@import "functions";
+@import "./helpers/variables";
+@import "bootstrap";
+
+// components
+@import 'components/modal';
+
+// tools
+@import 'grid';
+@import 'tools';
+
+// layout
+@import './layout/layout';
+
+// pages
+@import './pages/index';
