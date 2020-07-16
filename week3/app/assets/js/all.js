@@ -90,7 +90,7 @@ new Vue({ // 建立一個 Vue 實體
           if (item.id === id) {
 
             //更新資料 
-            //方法一：用這方法 不一定會將值 完整寫入
+            //方法一：用這方法 利用 v-model方式已經綁定畫面 才會進而觸發讓兩個不同物件跟著綁定，但不是好作法。
             //this.products[i] = this.tempProduct; 
             
             //方法二：強制更新寫入方式  this.$set(目標, 屬性 ,值)
