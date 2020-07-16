@@ -2,8 +2,30 @@
 <html lang="zh-Hant-TW">
 
 <head>
-  <%- include('meta.ejs') %>
-  <title><%- title %></title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- 作者 -->
+<meta name="author" content="" />
+<!-- 關鍵字 -->
+<meta name="keywords" content="" />
+<!-- 網頁說明 -->
+<meta name="description" content="" />
+<!-- 公司名稱 -->
+<meta name="company" content="" />
+<!-- 版權宣告 -->
+<meta name="copyright" content="" />
+<!-- 網站發佈地址 -->
+<meta name="Distribution" content="" />
+<!-- 分享的標題  -->
+<meta property=" og:title" content="" />
+<!-- 分享的內容敘述 -->
+<meta property="og:description" content="" />
+<!-- 分享的網頁連結 -->
+<meta property="og:url" content="" />
+<!--分享在FB的縮圖 -->
+<meta property="og:image" content="" />
+  <title>Products</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
   <link rel="stylesheet" href="./assets/style/all.css">
 </head>
@@ -55,7 +77,52 @@
     </div>
   </nav>
 
-  <%- contents %>
+  
+
+<!-- 內容區塊 -->
+<div class="container">
+
+  <!-- 查詢、總筆數 -->
+  <div class="row mb-3 justify-content-between mt-5">
+    <div class="col-md-6">
+      共 <span id='productCount'>0</span> 筆商品
+    </div>
+    <div class="col-md-4">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="請輸入關鍵字" id="keyWord">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="keySearch">查詢</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 商品內容 -->
+  <div id="list" class="row">
+    <div class="container">
+      <div class="row align-items-stretch" id="list-item">
+        <!-- <div class="col-md-4">
+          <div class="card ">
+            <img src="https://images.unsplash.com/photo-1485815457792-d1a966f9bde0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                 class="pb-2" alt="...">
+            <div class="card-body">
+              <h3 class="text-primary">Baifan Bowl</h3>
+              <div class="d-flex">
+                <del class="mr-auto">NT$1,980</del>
+                <p class="text-danger font-weight-bold">NT$1,800</p>
+              </div>
+              <div class="d-flex justify-content-end">
+                <div class="btn btn-outline-primary"><i class="fas fa-shopping-cart mr-1"></i>加入購物車</div>
+
+              </div> <span class="onsale">On Sale</span>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
 
   <footer class="footer mt-6">
     <div class="bg-gray text-dark p-4 text-center border-top shadow">
