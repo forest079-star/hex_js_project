@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' />
+</head>
+
+<body>
+  <div id="app" class="container my-3">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">待辦事項</span>
+      </div>
+      <input type="text" class="form-control" placeholder="準備要做的任務" id="newTodo">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" id="addTodo">新增</button>
+      </div>
+    </div>
+    <div class="card text-center">
+      <ul class="list-group list-group-flush text-left" id="todoList">
+
+        <!-- <li class="list-group-item">
+          <div class="d-flex">
+            <div class="form-check" data-action="complete" data-id="${item.id}">
+              <input type="checkbox" class="form-check-input" ${item.completed ? 'checked' : '' }>
+              <label class="form-check-label ${item.completed ? 'completed' : ''}"> ${item.title}</label>
+            </div>
+            <button type="button" class="close ml-auto remove" aria-label="Close" data-action="remove" data-id="${item.id}">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </li> -->
+      </ul>
+      <div class="card-footer d-flex justify-content-between">
+        <span>還有 <span id="taskCount">0</span> 筆任務</span>
+        <a href="#" id="clearTask">清除所有任務</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    var todoData = [];
+
+    var newTodoValue = document.getElementById("newTodo");
+    var addBtn = document.getElementById("addTodo");
+    var taskCount = document.getElementById("taskCount");
+    var clear = document.getElementById("clearTask");
+    var todoList = document.getElementById("todoList");
+
+    render(todoData);
+
+    function addTodo() {
+      var newTodo = newTodoValue.value.trim(); //移除輸入框前後的空白部分。
+      var timeStamp = Math.floor(Date.now()); // 無條件捨去，取最大的整數。
+
+      if (newTodo !== "") {
+        todoData.push({
+          //如果輸入的資料不是空值，將資料放入todoData 並設定物件屬性 id, title, complated
+          id: timeStamp,
+          title: newTodo,
+          completed: false
+        });
+
+        render(todoData); // 渲染畫面
+        newTodoValue.value = ""; //輸入完資料後 將輸入框清空。
+      }
+    }
+
+    // 移除代辦事項
+    function removeTodo(id) {
+      var newIndex = 0;
+
+      todoData.forEach((item, key) => {
+        if (id == item.id) {
+          newIndex = key; //判斷該事項的index 並使用 splice 移除掉
+        }
+      });
+      todoData.splice(newIndex, 1);
+      render(todoData); // 再次渲染畫面
+    }
+
+    // 對完成待辦的事項去改變該資料物件的complated的布林值。
+    function completeTodo(id) {
+      todoData.forEach((item) => {
+        if (id == item.id) {
+          item.completed = item.completed ? false : true;
+        }
+      });
+      render(todoData);
+    }
+
+    // 清除所有代辦事項，對a Tag 的預設行為做取消，並把資料設為空陣列，再次渲染畫面。
+    function clearAllTask(e) {
+      e.preventDefault();
+      todoData = [];
+      render(todoData);
+    }
+
+    //判斷要移除的代辦事件，和已完成的事件，並呼叫上面設置的function 去做執行動作。
+    function doSomething(e) {
+      var action = e.target.parentNode.dataset.action;
+      var id = e.target.parentNode.dataset.id;
+
+      if (action == "remove") {
+        removeTodo(id);
+      } else if (action === "complete") {
+        completeTodo(id);
+      }
+    }
+
+    // 獎取得的資料，渲染出來。
+    function render(data) {
+      var str = "";
+      data.forEach((item) => {
+        str += `<li class="list-group-item">
+              <div class="d-flex">
+                <div class="form-check" data-action="complete" data-id="${
+                  item.id
+                }">
+                  <input type="checkbox" class="form-check-input" ${
+                    item.completed ? "checked" : ""
+                  }>
+                  <label class="form-check-label ${
+                    item.completed ? "completed" : ""
+                  }"> ${item.title}</label>
+                </div>
+                <button type="button" class="close ml-auto remove" aria-label="Close" data-action="remove" data-id="${
+                  item.id
+                }">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </li>`;
+      });
+
+      // 按ENTER 新增資料
+      function enterKey(e) {
+        // console.log(e);
+        if (e.keyCode == 13) {
+          addTodo();
+        }
+      }
+
+      // 監聽 click 事件， 並且觸發函式。
+      addBtn.addEventListener("click", addTodo);
+      clear.addEventListener("click", clearAllTask);
+      todoList.addEventListener("click", doSomething);
+      newTodoValue.addEventListener("keypress", enterKey);
+
+      todoList.innerHTML = str; // 將取得的資料，渲染到 todoList 內
+      taskCount.textContent = data.length; //計算資料有幾筆，並更新
+    }
+  </script>
+</body>
+
+</html>
