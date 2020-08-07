@@ -100,51 +100,12 @@ export default {
   props: ['tempProduct', 'api'],
   methods: {
     updateProduct() {
-      // let url = `${this.api.path}${this.api.uuid}/admin/ec/product/${this.tempProduct.id}`;
-      // axios.patch(url, this.tempProduct)
-      //   .then(res=> {
-      //     // console.log(res)
-      //     this.$emit('update')
-      //   })
-
-      // // 新增商品
-      // let api = `https://course-ec-api.hexschool.io/api/${this.api.uuid}/admin/ec/product`;
-      // let httpMethod = 'post';
-     
-
-      // // 預設帶入 token
-      // axios.defaults.headers.common.Authorization = `Bearer ${this.token}`;
-
-      // axios[httpMethod](api, this.tempProduct).then(() => {
-      //   $('#productModal').modal('hide'); // AJAX 新增成功後關閉 Modal
-        
-      //   this.getProducts(); // 重新取得全部產品資料
-      // }).catch((error) => {
-      //   console.log(error) // 若出現錯誤則顯示錯誤訊息
-      // });
       
-      // 新增商品
-      // let api = `https://course-ec-api.hexschool.io/api/${this.api.uuid}/admin/ec/product`;
-      // let httpMethod = 'post';
-      // // 當不是新增商品時則切換成編輯商品 API
-      // if (!this.isNew) {
-      //   api = `https://course-ec-api.hexschool.io/api/${this.api.uuid}/admin/ec/product/${this.tempProduct.id}`;
-      //   httpMethod = 'patch';
-      // }    
-      // axios[httpMethod](api, this.tempProduct).then(() => {
-      //   this.$emit('update');
-      //   $('#productModal').modal('hide');
-      // }).catch((error) => {
-      //   console.log(error)
-      // });
-
-
       if(this.tempProduct.id) {
         let api = `https://course-ec-api.hexschool.io/api/${this.api.uuid}/admin/ec/product/${this.tempProduct.id}`;
-        axios.path(api, this.tempProduct)
+        axios.patch(api, this.tempProduct)
           .then( res => {
             this.$emit('update');
-            $('#productModal').modal('hide');
           })
       }
       else {
@@ -152,8 +113,7 @@ export default {
         axios.post(api, this.tempProduct)
           .then(res=>{
             console.log(res);
-            this.$emit('update');
-            $('#productModal').modal('hide');
+            this.$emit('update')
           })
       }
     }
