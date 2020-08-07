@@ -100,6 +100,7 @@ new Vue({
           $('#productModal').modal('hide');
         }
         else{
+           //判斷如果沒有id ==>建立新產品
           $('#productModal').modal('hide');
         }
       });

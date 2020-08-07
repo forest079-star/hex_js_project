@@ -101,6 +101,7 @@ export default {
   methods: {
     updateProduct() {
       
+
       if(this.tempProduct.id) {
         let api = `https://course-ec-api.hexschool.io/api/${this.api.uuid}/admin/ec/product/${this.tempProduct.id}`;
         axios.patch(api, this.tempProduct)
