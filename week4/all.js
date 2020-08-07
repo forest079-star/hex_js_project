@@ -83,7 +83,6 @@ new Vue({
     },
     getProducts(num = 1) {
       // ES6 預設頁數設為第一頁
-
       // console.log(num);
       const url = `${this.api.path}${this.api.uuid}/admin/ec/products?page=${num}`;
       axios.get(url).then((res) => {
@@ -93,11 +92,14 @@ new Vue({
         // 將資料複製到 pagination
         this.pagination = res.data.meta.pagination;
 
-        //如果有id 代表有資料 所以觸發關閉彈跳視窗
+        //如果有id 代表有資料 觸發關閉彈跳視窗
         if (this.tempProduct.id) {
           this.tempProduct = {
             imageUrl: [],
           };
+          $('#productModal').modal('hide');
+        }
+        else{
           $('#productModal').modal('hide');
         }
       });
